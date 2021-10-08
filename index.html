@@ -60,6 +60,20 @@
       .white_tint{
         color: #ffffff;
       }
+      .scroll-bound {
+		width: 100%;
+		
+		.content {
+			height: auto !important;
+			width: 100%;
+			position: sticky;
+			top:0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+	}
     </style>
 
   </head>
@@ -87,8 +101,18 @@
           </div>
         </div>
       </nav>
-      <section class="home-section home-full-height bg-dark bg-gradient" id="home" data-background="assets/images/section-10.jpg">
-        <div class="titan-caption">
+
+
+      <section class="home-section home-full-height bg-dark bg-gradient" id="home" style="position: relative;">
+
+      	<div class="scroll-bound" style="position: absolute;">
+			<div class="content">
+	 			<video width="100%" muted preload autoplay loop style="position: fixed; min-height: 1024px;  object-fit:cover;">
+					<source src="https://webm.red/AuFf.webm" type="video/webm"></video>
+			</div>
+		</div>
+
+      	<div class="titan-caption" style="position: absolute;">
           <div class="caption-content">
             <!-- <div class="font-alt mb-30 titan-title-size-1">Hello &amp; welcome to</div> -->
             <!-- <div class="font-alt mb-40" style="font-size: 80px; letter-spacing: 26px; font-weight: 500;">Pr0tag0nist</div> -->
@@ -99,14 +123,17 @@
             <div class="col-sm-6 col-sm-offset-3">
               <script src="https://cdn.logwork.com/widget/countdown.js"></script>
               <a href="https://logwork.com/countdown-qbz2" class="countdown-timer" data-style="circles" data-timezone="Africa/Nairobi"
-                data-textcolor="#ffffff" data-date="2022-10-31 19:00" data-background="#ff7575" data-digitscolor="#ffffff"
-                data-unitscolor="#ffffff">Public Sale begins in:</a>
+                data-textcolor="#ffffff" data-date="2021-10-30 19:00" data-background="#ff7575" data-digitscolor="#ffffff"
+                data-unitscolor="#ffffff">Raffle begins in:</a>
             </div>
           </div>
         </div>
+      	
+        
       </section>
+
       <div class="main">
-        <section class="module" id="services">
+        <section class="module">
           <div class="container">
             <div class="row">
               <div class="col-sm-6 col-sm-offset-3">
@@ -614,5 +641,25 @@
     <script async="" defer="" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDK2Axt8xiFYMBMDwwG1XzBQvEbYpzCvFU"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
+    <script type="text/javascript">
+    	const registerVideo = (bound, video) => {
+		bound = document.querySelector(bound);
+		video = document.querySelector(video);
+		const scrollVideo = ()=>{
+			if(video.duration) {
+				const distanceFromTop = window.scrollY + bound.getBoundingClientRect().top;
+				const rawPercentScrolled = (window.scrollY - distanceFromTop) / (bound.scrollHeight - window.innerHeight);
+				const percentScrolled = Math.min(Math.max(rawPercentScrolled, 0), 1);
+				
+				video.currentTime = video.duration * percentScrolled;
+			}
+			requestAnimationFrame(scrollVideo);
+		}
+		requestAnimationFrame(scrollVideo);
+	}
+
+
+	registerVideo("#bound-one", "#bound-one video");
+    </script>
   </body>
 </html>

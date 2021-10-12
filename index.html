@@ -8,7 +8,7 @@
     Document Title
     =============================================
     -->
-    <title>Pr0tag0nist</title>
+    <title>Pr0tag0nists</title>
     <!--  
     Favicons
     =============================================
@@ -74,6 +74,36 @@
 			align-items: center;
 		}
 	}
+	.hoverme {
+/*		  width: 240px;
+		  text-align: center;
+		  padding: 10px 0;
+		  cursor: pointer;
+		  position: relative;*/
+
+		  div:hover {
+		  	background-color: yellow;
+		    @for $i from 1 through 50 {
+		      i:nth-of-type(#{$i}) {
+		        transform: translate3d(
+		            random(190) - 100 + px,
+		            random(200) - 100 + px,
+		            0
+		          )
+		          rotate(random(360) + deg);
+		        background: hsla(random(360), 100%, 50%, 1);
+		        animation: bang 700ms ease-out forwards;
+		        opacity: 0;
+		      }
+		    }
+		  }
+		}
+		@keyframes bang {
+		  from {
+		    transform: translate3d(0, 0, 0);
+		    opacity: 1;
+		  }
+		}
     </style>
 
   </head>
@@ -85,7 +115,7 @@
       <nav class="navbar navbar-custom navbar-transparent navbar-fixed-top one-page" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html">Pr0tag0nist</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html">Pr0tag0nists</a>
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -115,7 +145,7 @@
       	<div class="titan-caption" style="position: absolute;">
           <div class="caption-content">
             <!-- <div class="font-alt mb-30 titan-title-size-1">Hello &amp; welcome to</div> -->
-            <!-- <div class="font-alt mb-40" style="font-size: 80px; letter-spacing: 26px; font-weight: 500;">Pr0tag0nist</div> -->
+            <!-- <div class="font-alt mb-40" style="font-size: 80px; letter-spacing: 26px; font-weight: 500;">Pr0tag0nists</div> -->
             <div class="col-sm-6 col-sm-offset-3">
               <div class="alt-services-image align-center"><img width="70%" src="assets/images/banner.jpg" alt="Banner Image"></div>
             </div>
@@ -558,7 +588,7 @@
 		                    
 		                </div>
 		                <div class="team-descr font-alt">
-			                <div class="team-name">Warren
+			                <div class="team-name">Magz
 			                	<a target="_blank" href="https://twitter.com/"><i
 		                            class="fa fa-twitter"></i></a>
 		                    </div>
@@ -610,7 +640,7 @@
           <div class="container">
             <div class="row">
               <div class="col-sm-6">
-                <p class="copyright font-alt">&copy; 2021&nbsp;<a href="index.html">Pr0tag0nist</a>, All Rights Reserved</p>
+                <p class="copyright font-alt">&copy; 2021&nbsp;<a href="index.html">Pr0tag0nists</a>, All Rights Reserved</p>
               </div>
               <div class="col-sm-6">
                 <div class="footer-social-links"><a href="#">TWITTER</a><a href="#">DISCORD</a>

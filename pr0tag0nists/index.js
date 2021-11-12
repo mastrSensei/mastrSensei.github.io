@@ -1,5 +1,5 @@
 window.onload = function () {
-	connect()
+	// connect()
 };
 
 async function connect() {

@@ -37,6 +37,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <link href="assets/lib/animate.css/animate.css" rel="stylesheet">
     <link href="assets/lib/components-font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="assets/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<!--     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/fontawesome.min.css" rel="stylesheet"> -->
     <link href="assets/lib/et-line-font/et-line-font.css" rel="stylesheet">
     <link href="assets/lib/flexslider/flexslider.css" rel="stylesheet">
     <link href="assets/lib/owl.carousel/dist/assets/owl.carousel.min.css" rel="stylesheet">
@@ -48,6 +50,51 @@
     <link id="color-scheme" href="assets/css/colors/default.css" rel="stylesheet">
 
     <style>
+     .link-button {
+      background-color: #ffffff;
+      color: #121212;
+      padding: 10px;
+      margin: 2px;
+     }
+     .link-button:hover{
+           background: #f57268;
+           color: #ffffff;
+      }
+      .banner_video video{
+        position: fixed;
+        object-fit:cover;
+      }
+      .sale-link-button {
+      background-color: #ffffff;
+      color: #121212;
+      height: 80px;
+      font-size: 25px;
+      padding: 10px;
+      margin: 20px;
+     }
+     .sale-link-button:hover{
+           background: #f57268;
+           color: #ffffff;
+      }
+
+      @media screen and (max-width: 500px) {
+        .sale-link-button {
+          width: 60%;
+          font-size: 10px;
+        }
+
+        .banner_video video{
+          min-height: 900px;
+        }
+      }
+
+
+     .center {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+      }
       mark {
         background-color: #f57268;
         color: black;
@@ -113,15 +160,15 @@
     <main>
       <div class="page-loader">
         <div class="loader">Loading...</div>
-        <div class="content" style="filter: grayscale(100%) brightness(25%);">
-        <video width="100%" muted preload autoplay loop style="position: fixed; min-height: 1024px;  object-fit:cover;">
-          <source src="https://webm.red/AuFf.webm" type="video/webm"></video>
+        <div class="content banner_video" style="filter: grayscale(100%) brightness(25%);">
+        <video width="100%" muted preload autoplay loop >
+          <source src="assets/images/main_banner.webm" type="video/webm"></video>
       </div>
       </div>
       <nav class="navbar navbar-custom navbar-transparent navbar-fixed-top one-page" role="navigation">
         <div class="container">
           <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" href="index.html">Pr0tag0nists</a>
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#custom-collapse"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" style = "margin-bottom: 10px;" href="/"><img width="12%" src="assets/images/banner.png" alt="Banner Image"></a>
           </div>
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
@@ -142,9 +189,9 @@
       <section class="home-section home-full-height bg-dark bg-gradient" id="home" style="position: relative;">
 
         <div class="scroll-bound" style="position: absolute;">
-      <div class="content">
-        <video width="100%" muted preload autoplay loop style="position: fixed; min-height: 1024px;  object-fit:cover;">
-          <source src="https://webm.red/AuFf.webm" type="video/webm"></video>
+      <div class="content banner_video" style="filter: brightness(50%);">
+        <video width="100%" muted preload autoplay loop>
+          <source src="assets/images/main_banner.webm" type="video/webm"></video>
       </div>
     </div>
 
@@ -153,12 +200,33 @@
             <!-- <div class="font-alt mb-30 titan-title-size-1">Hello &amp; welcome to</div> -->
             <!-- <div class="font-alt mb-40" style="font-size: 80px; letter-spacing: 26px; font-weight: 500;">Pr0tag0nists</div> -->
             <div class="col-sm-6 col-sm-offset-3">
-              <div class="alt-services-image align-center" style="padding-top: 90px;"><img width="70%" src="assets/images/banner.jpg" alt="Banner Image"></div>
+              <div class="alt-services-image align-center" style="padding-top: 90px;">
+                
+              </div>
             </div>
-            <!-- <a class="section-scroll btn btn-border-w btn-round" href="mint.html">PUBLIC SALE IS NOW LIVE</a> -->
-            <div class="col-sm-6 col-sm-offset-3">
+            
+            <div class="col-sm-6 col-sm-offset-3" style = "position: absolute; bottom: 0; left: 0; right: 0; padding-bottom: 10px;">
               <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-              <a href="https://logwork.com/countdown-qbz2" class="countdown-timer disableLink" data-style="circles" data-timezone="America/New_York" data-textcolor="#ffffff" data-date="2021-11-13 00:00" data-background="#ff7575" data-digitscolor="#ffffff"data-unitscolor="#ffffff">Raffle begins in:</a>
+              <a href="https://logwork.com/countdown-qbz2" class="countdown-timer disableLink" data-style="circles" data-timezone="America/New_York" data-textcolor="#ffffff" data-date="2021-11-13 00:00" data-background="#ff7575" data-digitscolor="#ffffff"data-unitscolor="#ffffff" style="height: 208px !important;">Raffle begins in:</a>
+
+              <!-- <a href="/raffle" target="_blank">
+                  <button type="button"  class="btn btn-secondary sale-link-button">RAFFLE IS NOW LIVE🎉</button>
+              </a> -->
+
+            </br>
+
+              <div class="btn-group" role="group">
+                <a href="https://twitter.com/pr0tag0nists" target="_blank">
+                  <button type="button"  class="btn btn-secondary link-button">TWITTER</button>
+                </a>
+                <a href="https://discord.gg/Kt5dr98Kxp" target="_blank">
+                  <button type="button"  class="btn btn-secondary link-button">DISCORD</button>
+                </a>
+                <a href="https://opensea.io" target="_blank">
+                  <button type="button"  class="btn btn-secondary link-button">OPENSEA</button>
+                </a>
+              </div>
+
             </div>
           </div>
         </div>
@@ -275,9 +343,9 @@
               </a></li>
           </ul>
         </section>
-        <section class="module bg-dark-60" style="background-color: #121212;">
+        <section class="module-small bg-dark-60" style="background-color: #121212;">
           <div class="container">
-            <div class="row multi-columns-row">
+            <div class="">
               <div class="col-sm-6 col-md-3 col-lg-3">
                 <div class="count-item mb-sm-40">
                   <div class="count-icon"><span class="icon-wallet"></span></div>
@@ -644,7 +712,7 @@
           <div class="container">
             <div class="row">
               <div class="col-sm-6">
-                <p class="copyright font-alt">&copy; 2021&nbsp;<a href="index.html">Pr0tag0nists</a>, All Rights Reserved</p>
+                <p class="copyright font-alt">&copy; 2021&nbsp;<a href="/">Pr0tag0nists</a>, All Rights Reserved</p>
               </div>
               <div class="col-sm-6">
                 <div class="footer-social-links"><a href="#">TWITTER</a><a href="#">DISCORD</a>

@@ -16,6 +16,6 @@ router.get('/', function(req,res){
 // Run Server
 app.use(express.static(__dirname));
 app.use('/', router);
-app.listen("8080", function () {
-  console.log('Example app listening on port 8080!')
+app.listen("3000", "127.0.0.1", function () {
+  console.log('Example app listening on port 3000!')
 })

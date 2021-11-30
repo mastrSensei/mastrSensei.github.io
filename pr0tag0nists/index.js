@@ -1,6 +1,6 @@
 window.onload = function () {
-	connect(),
-	totalSupply()
+	//connect(),
+	//totalSupply()
 };
 
 // Pr0t Token

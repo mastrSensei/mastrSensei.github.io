@@ -1,6 +1,7 @@
 window.onload = function () {
-	//connect(),
-	//totalSupply()
+	connect(),
+	totalSupply(),
+	saleState()
 };
 
 // Pr0t Token
@@ -659,7 +660,8 @@ async function connect() {
 	const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
 	const account = accounts[0];
 	console.log(accounts[0]);
-	document.getElementById('minterWallet').innerHTML = accounts[0] + ":";
+	document.getElementById('minterWallet').innerHTML = "Your Wallet: " + accounts[0].substring(0, 16) + "...";
+	document.getElementById('minterWallet2').innerHTML = "Your Wallet: " + accounts[0].substring(0, 16) + "...";
 }
 // Web3 wallet sign in end
 
@@ -688,32 +690,35 @@ async function signature() {
 // Function used to get total supply
 async function totalSupply(){
 	const web3 = new Web3(window.web3.currentProvider);
-	const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-
-	web3.eth.defaultAccount = accounts[0];
 
 	var Pr0tContract = new web3.eth.Contract(Pr0tABI, Pr0tAddress);
 
 	var totalSupplyPr0t = Pr0tContract.methods.totalSupply().call().then(function (response) {
 		document.getElementById('totalSupplyValue').innerHTML = response[0] + " / 10000";
-		console.log(response);
+		document.getElementById('totalSupplyValue2').innerHTML = response[0] + " / 10000";
 	});
 }
 
 // Function used to get sale state
 async function saleState(){
 	const web3 = new Web3(window.web3.currentProvider);
-	const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
-
-	web3.eth.defaultAccount = accounts[0];
 
 	var Pr0tContract = new web3.eth.Contract(Pr0tABI, Pr0tAddress);
 
 	var saleStatePr0t = Pr0tContract.methods.saleIsActive().call().then(function (response) {
-		if(response[0] == "False")
+		if(response.toString() == "false")
 		{
-			document.getElementById('totalSupplyValue').innerHTML = response[0] + " / 10000";
-			console.log(response);
+			document.getElementById('mintResponse').innerHTML = "Sale is not active ❌";
+			document.getElementById('mintButton').disabled = true;
+			document.getElementById('mintResponse2').innerHTML = "Sale is not active ❌";
+			document.getElementById('mintButton2').disabled = true;
+		}
+		else if(response.toString() == "true")
+		{
+			document.getElementById('mintResponse').innerHTML = "Sale is active 🎉";
+			document.getElementById('mintButton').disabled = false;
+			document.getElementById('mintResponse2').innerHTML = "Sale is active 🎉";
+			document.getElementById('mintButton2').disabled = false;
 		}
 		
 	});
@@ -725,20 +730,17 @@ async function minter(){
 	var numberOfTokens = document.getElementById('numberOfTokensSelect').value;
 
 	var amount = (numberOfTokens*0.066).toString();
+	console.log(amount);
 
 	const web3 = new Web3(window.web3.currentProvider);
 	const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
 
 	web3.eth.defaultAccount = accounts[0];
 
-	var today = Date.now();
 	var slug = "{{object.slug}}";
 
 	// Variable formating
-	today = new Date(today).getTime() / 1000;
 	amount = web3.utils.toWei(amount, 'ether');
-
-	console.log("Big Number: " + amount);
 
 	// To bytes32
 	slug = web3.utils.toHex(slug);
@@ -750,7 +752,7 @@ async function minter(){
 	var Pr0tContract = new web3.eth.Contract(Pr0tABI, Pr0tAddress);
 
 	var mintPr0t = Pr0tContract.methods.mintPr0t(numberOfTokens).call().then(function (response) {
-		
+		console.log(response);
 	});
 
 	web3.eth.sendTransaction({ to: Pr0tAddress,

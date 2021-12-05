@@ -73,7 +73,7 @@
         width: 12%;
       }
       .sale-link-button {
-      background-color: #ffffff;
+      background-color: #f57268;
       color: #121212;
       height: 80px;
       font-size: 25px;
@@ -81,9 +81,14 @@
       margin: 20px;
      }
      .sale-link-button:hover{
-           background: #f57268;
-           color: #ffffff;
+           background: #ffffff;
+           color: #f57268;
       }
+
+      .responsive_mint2 {
+          visibility: hidden;
+          display: none;
+        }
 
       @media screen and (max-width: 500px) {
         .sale-link-button {
@@ -98,6 +103,20 @@
 
         .navbar-brand img{
           width: 20%;
+        }
+
+        .responsive_mint {
+          visibility: hidden;
+          clear: both;
+          float: left;
+          margin: 10px auto 5px 20px;
+          width: 28%;
+          display: none;
+        }
+
+        .responsive_mint2 {
+          visibility: visible;
+          display: block !important;
         }
       }
 
@@ -203,7 +222,8 @@
           <div class="collapse navbar-collapse" id="custom-collapse">
             <ul class="nav navbar-nav navbar-right">
               
-              <li><a href="#totop">Home</a></li>
+              
+              <li><a class="section-scroll" href="#mint">Mint</a></li>
               <li><a class="section-scroll" href="#services">Intro</a></li>
               <li><a class="section-scroll" href="#works">Community</a></li>
               <li><a class="section-scroll" href="#alt-features">Specs</a></li>
@@ -236,10 +256,11 @@
             </div>
             
             <div class="col-sm-6 col-sm-offset-3" style = "position: absolute; bottom: 0; left: 0; right: 0; padding-bottom: 10px;">
-              <script src="https://cdn.logwork.com/widget/countdown.js"></script>
-              <a href="https://logwork.com/countdown-rk3u" class="countdown-timer disableLink" data-style="circles" data-timezone="Europe/London" data-textcolor="#ffffff" data-date="2021-12-6 16:00" data-background="#ff7575" data-digitscolor="#ffffff"data-unitscolor="#ffffff" style="height: 208px !important;">Main sale begins in:</a>
-
               
+
+              <a class="section-scroll" href="#mint">
+                  <button type="button"  class="btn btn-secondary sale-link-button">MAIN SALE IS NOW LIVE🎉</button>
+              </a>
 
             </br>
 
@@ -247,7 +268,7 @@
                 <a href="https://twitter.com/pr0tag0nists" target="_blank">
                   <button type="button"  class="btn btn-secondary link-button">TWITTER</button>
                 </a>
-                <a href="https://discord.gg/Kt5dr98Kxp" target="_blank">
+                <a href="https://discord.gg/Ys8UN6PrRp" target="_blank">
                   <button type="button"  class="btn btn-secondary link-button">DISCORD</button>
                 </a>
                 
@@ -279,6 +300,102 @@
             </div>
           </div>
         </section>
+
+        <section class="home-section home-full-height bg-dark bg-gradient parallax-bg" id="mint" style="position: relative;">
+
+        <div class="titan-caption responsive_mint" style="position: absolute;">
+          <div class="caption-content col-sm-8" style="background-color: #121212; height: 100%;">
+            
+            
+            <div class="col-sm-6 col-sm-offset-3">
+              <div class="alt-services-image align-center" style="padding-top: 0px;">
+                
+              </div>
+            </div>
+            
+            <div class="col-sm-6 col-sm-offset-3" style = "position: absolute; top: 30%; left: 0; right: 0;">
+              <h2 class="module-title font-alt red_tint">Pr0tag0nists Main Sale Mint</h2>
+              <div class="btn-group"  style="width: 100%;">
+                <h2 id = "minterWallet" class="module-title font-alt red_tint" style="margin-bottom: 5px; color: #f57268; font-size: 15px;">Your Wallet:</h2>
+                <select id ="numberOfTokensSelect" class="form-select" aria-label="Select Pr0ts" style="font-size: 15px; color: #121212; width: 100%; height: 40px;">
+                  <option selected value="1">1 PR0TAG0NIST : 0.066 ETH</option>
+                  <option value="2">2 PR0TAG0NIST : 0.132 ETH</option>
+                  <option value="3">3 PR0TAG0NIST : 0.198 ETH</option>
+                  <option value="4">4 PR0TAG0NIST : 0.264 ETH</option>
+                  <option value="5">5 PR0TAG0NIST : 0.33 ETH</option>
+                  <option value="6">6 PR0TAG0NIST : 0.396 ETH</option>
+                  <option value="7">7 PR0TAG0NIST : 0.462 ETH</option>
+                  <option value="8">8 PR0TAG0NIST : 0.528 ETH</option>
+                  <option value="9">9 PR0TAG0NIST : 0.594 ETH</option>
+                  <option value="10">10 PR0TAG0NIST : 0.66 ETH</option>
+                </select>
+              </div>
+
+              <div style="padding-top: 20px;">
+                <button id = "mintButton" type="button"  class="btn btn-secondary sale-link-button" onclick="minter()" style="width: 100%; margin: 0px;">MINT YOUR PR0T</button>
+
+                <h2 id="mintResponse" class="module-title font-alt red_tint" style="margin-top: 10px; margin-bottom: 5px; color: #ffffff; font-size: 15px;">:</h2>
+
+              </div>
+              <div style="padding-top: 20px;">
+                <h2 class="module-title font-alt red_tint" style="margin-bottom: 5px; color: #f57268; font-size: 15px;">Minted Pr0ts:</h2>
+                <h2 id = "totalSupplyValue" class="module-title font-alt red_tint" style="margin-bottom: 5px; font-size: 15px;"> / 10000</h2>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-sm-4" style="background-color: #ffffff; height: 100%; padding: 0px;">
+            <img src="assets/images/Hunimation.gif" style="height: 100%; object-fit: cover; overflow: hidden;" alt="Feature Image"/>
+          </div>
+        </div>
+
+        <div class="titan-caption responsive_mint2" style="background-color: #121212; position: absolute;">
+          <div class="caption-content" style="height: 100%;">
+            
+            
+            <div class="col-sm-6 col-sm-offset-3">
+              <div class="alt-services-image align-center" style="padding-top: 0px;">
+                
+              </div>
+            </div>
+            
+            <div class="col-sm-6 col-sm-offset-3" style = "position: absolute; top: 10%; left: 0; right: 0;">
+              <h2 class="module-title font-alt red_tint">Pr0tag0nists Main Sale Mint</h2>
+              <div class="btn-group"  style="width: 100%;">
+                <h2 id = "minterWallet2" class="module-title font-alt red_tint" style="margin-bottom: 5px; color: #f57268; font-size: 15px;">Your Wallet:</h2>
+                <select id ="numberOfTokensSelect" class="form-select" aria-label="Select Pr0ts" style="font-size: 15px; color: #121212; width: 100%; height: 40px;">
+                  <option selected value="1">1 PR0TAG0NIST : 0.066 ETH</option>
+                  <option value="2">2 PR0TAG0NIST : 0.132 ETH</option>
+                  <option value="3">3 PR0TAG0NIST : 0.198 ETH</option>
+                  <option value="4">4 PR0TAG0NIST : 0.264 ETH</option>
+                  <option value="5">5 PR0TAG0NIST : 0.33 ETH</option>
+                  <option value="6">6 PR0TAG0NIST : 0.396 ETH</option>
+                  <option value="7">7 PR0TAG0NIST : 0.462 ETH</option>
+                  <option value="8">8 PR0TAG0NIST : 0.528 ETH</option>
+                  <option value="9">9 PR0TAG0NIST : 0.594 ETH</option>
+                  <option value="10">10 PR0TAG0NIST : 0.66 ETH</option>
+                </select>
+              </div>
+
+              <div style="padding-top: 20px;">
+                <button id = "mintButton2" type="button"  class="btn btn-secondary sale-link-button" onclick="minter()" style="width: 100%; margin: 0px;">MINT YOUR PR0T</button>
+
+                <h2 id="mintResponse2" class="module-title font-alt red_tint" style="margin-top: 10px; margin-bottom: 5px; color: #ffffff; font-size: 15px;">:</h2>
+
+              </div>
+              <div style="padding-top: 20px;">
+                <h2 class="module-title font-alt red_tint" style="margin-bottom: 5px; color: #f57268; font-size: 15px;">Minted Pr0ts:</h2>
+                <h2 id = "totalSupplyValue2" class="module-title font-alt red_tint" style="margin-bottom: 5px; font-size: 15px;"> / 10000</h2>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        
+      </section>
+
+      <hr class="divider-w" style="border-top: 3px solid #ffffff;">
+
 
         <section class="module" id="services" style="background-color: #121212;">
           <div class="container">
@@ -324,7 +441,7 @@
                 </div>
               </div>
               <div class="col-sm-6 col-md-4 col-lg-2">
-                <div class="callout-btn-box"><a class="btn btn-w btn-round" href="https://discord.gg/Kt5dr98Kxp" target="_blank">JOIN THE DISCORD</a>
+                <div class="callout-btn-box"><a class="btn btn-w btn-round" href="https://discord.gg/Ys8UN6PrRp" target="_blank">JOIN THE DISCORD</a>
                 </div>
               </div>
             </div>
@@ -584,7 +701,7 @@
                     <div class="col-sm-8 col-sm-offset-2">
                       <blockquote class="testimonial-text font-alt">You will be able to mint directly on our website, using Metamask.
                       
-                      For Main Sale, a maximum of 10 Pr0tag0nists per transaction will be allowed.</blockquote>
+                      For Main Sale, a maximum of 3 Pr0tag0nists per spot. For Main Sale, a maximum of 10 Pr0tag0nists per transaction will be allowed.</blockquote>
                     </div>
                   </div>
                 </div>
@@ -673,7 +790,7 @@
                 </div>
               </div>
               <div class="col-sm-6 col-md-4 col-lg-2">
-                <div class="callout-btn-box"><a class="btn btn-w btn-round" href="https://discord.gg/Kt5dr98Kxp" target="_blank">JOIN THE DISCORD</a></div>
+                <div class="callout-btn-box"><a class="btn btn-w btn-round" href="https://discord.gg/Ys8UN6PrRp" target="_blank">JOIN THE DISCORD</a></div>
               </div>
             </div>
           </div>
@@ -690,7 +807,7 @@
                 <a href="https://twitter.com/pr0tag0nists" target="_blank">
                   <button type="button"  class="btn btn-secondary link-button" style="height: 50px !important;">TWITTER</button>
                 </a>
-                <a href="https://discord.gg/Kt5dr98Kxp" target="_blank">
+                <a href="https://discord.gg/Ys8UN6PrRp" target="_blank">
                   <button type="button"  class="btn btn-secondary link-button" style="height: 50px !important;">DISCORD</button>
                 </a>
                 
@@ -718,6 +835,7 @@
     <script src="assets/lib/magnific-popup/dist/jquery.magnific-popup.js"></script>
     <script src="assets/lib/simple-text-rotator/jquery.simple-text-rotator.min.js"></script>
     
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="/index.js"></script>

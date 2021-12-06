@@ -752,12 +752,27 @@ async function minter(){
 	var Pr0tContract = new web3.eth.Contract(Pr0tABI, Pr0tAddress);
 
 	var mintPr0t = Pr0tContract.methods.mintPr0t(numberOfTokens).call().then(function (response) {
-		console.log(response);
+		
 	});
 
 	web3.eth.sendTransaction({ to: Pr0tAddress,
 				value: amount,  
 				from: accounts[0], 
 				gasLimit: 150000,
-				data: mintPr0t });
+				data: mintPr0t })
+	.on('transactionHash', function(hash){
+		console.log(hash);
+	    document.getElementById('mintResponse').innerHTML = "Transaction: " + hash.toString();
+		document.getElementById('mintResponse2').innerHTML = "Transaction: " + hash.toString();
+	})
+	.on('receipt', function(receipt){
+		console.log(receipt);
+	    document.getElementById('mintResponse').innerHTML = "Response: " + receipt.toString();
+		document.getElementById('mintResponse2').innerHTML = "Response: " + receipt.toString();
+	})
+	.on('error', function(error){
+		console.log(error);
+	    document.getElementById('mintResponse').innerHTML = "Error: " + error.toString();
+		document.getElementById('mintResponse2').innerHTML = "Error: " + error.toString();
+	});
 }

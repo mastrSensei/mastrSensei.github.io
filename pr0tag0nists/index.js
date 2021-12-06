@@ -752,9 +752,16 @@ async function minter(){
 
 	var Pr0tContract = new web3.eth.Contract(Pr0tABI, Pr0tAddress);
 
+	var gas = await web3.eth.getGasPrice();
+
+	var gasLimit = 65862 * numberOfTokens;
+	console.log(gasLimit);
+
 	var mintPr0t = Pr0tContract.methods.mintPr0t(numberOfTokens).send({
 				to: Pr0tAddress,
 			    from: accounts[0],
+			    gasPrice: gas,
+			    gasLimit: gasLimit,
 			    value: amount
 			});
 }

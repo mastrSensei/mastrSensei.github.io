@@ -1,7 +1,7 @@
 window.onload = function () {
-	connect(),
-	totalSupply(),
-	saleState()
+	// connect(),
+	// totalSupply(),
+	// saleState()
 };
 
 // Pr0t Token
